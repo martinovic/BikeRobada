@@ -1,0 +1,84 @@
+{% extends "baseIndex.html" %}
+{% load url from future %}
+{% load staticfiles %}
+{% block titulo%}
+        <h2>{{ titulo }}</h2>
+{% endblock %}
+{% block datos %}
+
+    {% for row in posts %}
+		<div class="row">
+		    <!-- FOTO -->
+		    <div class="span4">
+	            <img src="{{ STATIC_URL }}{{ row.foto }}" 
+	                width='360px'
+	                align="middle"
+	                class="img-polaroid">
+            </div>
+            <!-- datos -->
+            <div class="span6">
+                <div class="row">
+                    <label class="span1">Marca</label>
+                    <div class="span3">{{ row.marca }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Modelo</label>
+                    <div class="span3 ">{{ row.modelo }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">a&ntilde;o</label>
+                    <div class="span3">{{ row.aniomodelo }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Tipo</label>
+                    <div class="span3 ">{{ row.tipo }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Color</label>
+                    <div class="span3 ">{{ row.color }}&nbsp;</div>
+                </div>
+                <div class="row">
+                    <label class="span1">Velocidades</label>
+                    <div class="span3 ">{{ row.velocidades }}
+                        {{ row.marcavelocidades }}
+                        {{ row.modelovelocidades }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1"># Cuadro</label>
+                    <div class="span3 ">{{ row.nrocuadro }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1"># Horquilla</label>
+                    <div class="span3 ">{{ row.nrohorquilla }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Fecha del robo</label>
+                    <div class="span3 ">{{ row.fecharobo }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Lugar del robo</label>
+                    <div class="span3">{{ row.lugarrobo }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Contactar</label>
+                    <div class="span3 ">{{ row.telefonocontacto }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">email</label>
+                    <div class="span3">{{ row.correo }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Accesorios</label>
+                    <div class="span3 ">{{ row.accesorios }} </div>
+                </div>
+                <div class="row">
+                    <label class="span1">Detalles</label>
+                    <div class="span3 ">{{ row.detalle }} </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+    {% endfor %}
+{% endblock %}

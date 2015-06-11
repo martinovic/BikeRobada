@@ -1,0 +1,43 @@
+{% load url from future %}
+{% load staticfiles %}
+{% spaceless %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/><title>Bike Robada</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel=stylesheet href="{% static 'bootstrap311/css/bootstrap.css' %}">
+        <link rel=stylesheet href="{% static 'bootstrap311/css/bootstrap-responsive.css' %}">
+        <link rel=stylesheet href="{% static 'css/base.css' %}" media=screen>
+
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <style>
+            .btn-custom {
+                width: 160px !important;
+                }
+        </style>
+    </head>
+    <body>
+        <header class="fondo2">
+            {% include "menu.html" %}
+        </header>
+
+        <div class="container" role="main">
+            <div class="page-header" style="margin:20px 0px 20px;">
+                {% block titulo %}{% endblock %}
+            </div>
+        </div>
+        <div class="container" role="main">
+            {% block datos %}{% endblock %}
+        </div>
+        <div class="container estadisticas" role="main">
+            {% block estadistica %}{% endblock %}
+        </div>
+        {% include "pie.html" %}
+        <script src="{% static 'bootstrap311/js/bootstrap.min.js' %}"></script>
+
+    </body>
+</html>
+{% endspaceless %}

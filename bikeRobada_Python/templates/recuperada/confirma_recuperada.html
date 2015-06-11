@@ -1,0 +1,41 @@
+{% extends "baseIndex.html" %}
+{% load url from future %}
+{% load staticfiles %}
+{% block search %}
+	<div class="input-group span2" style="margin-top:10px;">
+	    <form action="/denuncias/viewEvent/" method="post"
+	        class="form-horizontal" role="form"
+	        style="display: inline;">{% csrf_token %}
+	        <span class="input-group-btn">
+	            <input type="text" class="form-control" name="q">
+	            <button class="btn btn-default btn-custom"
+	                type="submit">
+	                <i class="glyphicon glyphicon-search"></i> Buscar</button>
+	        </span>
+	    </form>
+	</div>
+{% endblock %}
+
+{% block titulo%}
+        <h2>{{ titulo }}</h2>
+{% endblock %}
+
+{% block datos %}
+    <div class="row-fluid">
+        <div class="span10 offset1 text-center" 
+            style="margin-top:40px; margin-bottom:240px;">
+            {% if correo %}
+	            <h3>Se confirma la baja de:</h3>
+	            <h3>{{ correo }}</h3>
+	            <p>Gracias por hacer uso del sitio.</p>
+            {% else %}
+                <h2>El correo no puede ser verificado.</h2>
+            {% endif %}
+            
+	    </div>
+	</div>
+	
+{% endblock %}
+{% block estadistica %}
+    {% include "estadistica.html" %}
+{% endblock %}

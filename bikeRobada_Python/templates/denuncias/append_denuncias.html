@@ -1,0 +1,324 @@
+{% extends "baseIndex.html" %}
+{% load url from future %}
+{% load staticfiles %}
+{% block titulo%}
+        <h2>{{ titulo }}</h2>
+{% endblock %}
+{% block datos %}
+
+    <div class="row">
+    <div class="span11" style="overflow-y:auto; overflow-x:hidden; height:400px;"> 
+        
+        <form method="post" id="formdenuncia"
+                action="/denuncias/save_denuncias/"
+                class="form-horizontal"
+                role="form"
+                {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}
+                >{% csrf_token %}
+
+            <input type=hidden name=id value="{{ posts.id }}">
+
+            <div class="row">
+                <label class="span2">Correo electronico</label>
+                <div class="span7">
+                    <input type="email" name="correo"
+                        value="{{ posts.correo }}"
+                        placeholder="Introduce tu email"
+                        id="email"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Modelo</label>
+                <div class="span7">
+                    <input type="text" name="modelo"
+                        value="{{ posts.modelo }}"
+                        placeholder="modelo de la bicicleta"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Marca</label>
+                <div class="span4">
+                    <input type="text" name="marca"
+                        value="{{ posts.marca }}"
+                        placeholder="Marca visible de la bicicleta"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+                <label class="span1">A&ntilde;o Modelo</label>
+                <div class="span2">
+                    <input type="number" name="anioModelo"
+                        value="{{ posts.anioModelo }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Tipo bicicleta</label>
+
+                <div class="span4">
+                    <select name=tipo class="form-control" {% if lectura == "true" %} disabled {% endif %}>
+                        <option {% ifequal posts.tipo "MTB" %}selected{% endifequal %} value=MTB>MTB
+                        <option {% ifequal posts.tipo "Carretera" %}selected{% endifequal %} value=Carretera>Carretera
+                        <option {% ifequal posts.tipo "Ciclocross" %}selected{% endifequal %} value=Ciclocross>Ciclocross
+                        <option {% ifequal posts.tipo "Paseo" %}selected{% endifequal %} value=Paseo>Paseo
+                        <option {% ifequal posts.tipo "Infantil" %}selected{% endifequal %} value=Infantil>Infantil
+                        <option {% ifequal posts.tipo "Antigua" %}selected{% endifequal %} value=Antigua>Antigua
+                        <option {% ifequal posts.tipo "Trial" %}selected{% endifequal %} value=Trial>Trial
+                        <option {% ifequal posts.tipo "Freestyle" %}selected{% endifequal %} value=Freestyle>Freestyle
+                        <option {% ifequal posts.tipo "Urbana" %}selected{% endifequal %} value=Urbana>Urbana
+                        <option {% ifequal posts.tipo "BMX" %}selected{% endifequal %} value=BMX>BMX
+                        <option {% ifequal posts.tipo "Cargo" %}selected{% endifequal %} value=Cargo>Cargo
+                        <option {% ifequal posts.tipo "Custom" %}selected{% endifequal %} value=Custom>Custom
+                        <option {% ifequal posts.tipo "Cruiser" %}selected{% endifequal %} value=Cruiser>Cruiser
+                        <option {% ifequal posts.tipo "Pista" %}selected{% endifequal %} value=Pista>Pista
+                        <option {% ifequal posts.tipo "Tandem" %}selected{% endifequal %} value=Tandem>Tandem
+                        <option {% ifequal posts.tipo "Fixed" %}selected{% endifequal %} value=Fixed>Fixed
+                        <option {% ifequal posts.tipo "Plegable" %}selected{% endifequal %} value=Plegable>Plegable
+                        <option {% ifequal posts.tipo "Electrica" %}selected{% endifequal %} value=MTB>Electrica
+                    </select>
+<!--
+                    <input type="text" name="tipo"
+                        value="{{ posts.tipo }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+-->
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Colores</label>
+                <div class="span7">
+                    <input type="text" name="colores"
+                        value="{{ posts.colores }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <label class="span2">Cantidad Velocidades</label>
+                <div class="span1">
+                    <input type="number" name="velocidades"
+                        value="{{ posts.velocidades }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Marca Velocidades</label>
+                <div class="span7">
+                    <input type="text" name="marcaVelocidades"
+                        value="{{ posts.marcaVelocidades }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Modelo de velocidades</label>
+                <div class="span7">
+                    <input type="text" name="modeloVelocidades"
+                        value="{{ posts.modeloVelocidades }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Nro serie de cuadro</label>
+                <div class="span7">
+                    <input type="text" name="nroCuadro"
+                        value="{{ posts.nroCuadro }}"
+                        id="cuadro"
+                        placeholder="##############"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Nro Serie de horquilla</label>
+                <div class="span7">
+                    <input type="text" name="nroHorquilla"
+                        value="{{ posts.nroHorquilla }}"
+                        id="horquilla"
+                        placeholder="##############"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Fecha del robo</label>
+                <div class="span7">
+                    <input type="date" name="fechaRobo"
+                        value="{{ posts.fechaRobo }}"
+                        placeholder="AAAA-MM-DD"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <label class="span2">Lugar del robo</label>
+                <div class="span7">
+                    <input type="text" name="lugarRobo"
+                        value="{{ posts.lugarRobo }}"
+                        placeholder="Direccion o interseccion de calles"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Provincia</label>
+                <div class="span4">
+                <select name=provincia class="form-control" {% if lectura == "true" %} disabled {% endif %}>
+                    <option {% ifequal posts.provincia  "Buenos Aires" %}selected{% endifequal %} value="Buenos Aires">Buenos Aires
+                    <option {% ifequal posts.provincia  "CABA" %}selected{% endifequal %} value="CABA">CABA
+                    <option {% ifequal posts.provincia  "Buenos Aires" %}selected{% endifequal %} value="Catamarca">Catamarca
+                    <option {% ifequal posts.provincia  "Catamarca" %}selected{% endifequal %} value="Chaco">Chaco
+                    <option {% ifequal posts.provincia  "Chubut" %}selected{% endifequal %} value="Chubut">Chubut
+                    <option {% ifequal posts.provincia  "Cordoba" %}selected{% endifequal %} value="Cordoba">Cordoba
+                    <option {% ifequal posts.provincia  "Corrientes" %}selected{% endifequal %} value="Corrientes">Corrientes
+                    <option {% ifequal posts.provincia  "Entre Rios" %}selected{% endifequal %} value="Entre Rios">Entre Rios
+                    <option {% ifequal posts.provincia  "Formosa" %}selected{% endifequal %} value="Formosa">Formosa
+                    <option {% ifequal posts.provincia  "Jujuy" %}selected{% endifequal %} value="Jujuy">Jujuy
+                    <option {% ifequal posts.provincia  "La Pampa" %}selected{% endifequal %} value="La Pampa">La Pampa
+                    <option {% ifequal posts.provincia  "La Rioja" %}selected{% endifequal %} value="La Rioja">La Rioja
+                    <option {% ifequal posts.provincia  "Mendoza" %}selected{% endifequal %} value="Mendoza">Mendoza
+                    <option {% ifequal posts.provincia  "Misiones" %}selected{% endifequal %} value="Misiones">Misiones
+                    <option {% ifequal posts.provincia  "Neuquen" %}selected{% endifequal %} value="Neuquen">Neuquen
+                    <option {% ifequal posts.provincia  "Rio Negro" %}selected{% endifequal %} value="Rio Negro">Rio Negro
+                    <option {% ifequal posts.provincia  "Salta" %}selected{% endifequal %} value="Salta">Salta
+                    <option {% ifequal posts.provincia  "San Juan" %}selected{% endifequal %} value="San Juan">San Juan
+                    <option {% ifequal posts.provincia  "San Luis" %}selected{% endifequal %} value="San Luis">San Luis
+                    <option {% ifequal posts.provincia  "Santa Cruz" %}selected{% endifequal %} value="Santa Cruz">Santa Cruz
+                    <option {% ifequal posts.provincia  "Santa Fe" %}selected{% endifequal %} value="Santa Fe">Santa Fe
+                    <option {% ifequal posts.provincia  "Santiago del Estero" %}selected{% endifequal %} value="Santiago del Estero">Santiago del Estero
+                    <option {% ifequal posts.provincia  "Tierra del Fuego" %}selected{% endifequal %} value="Tierra del Fuego">Tierra del Fuego
+                    <option {% ifequal posts.provincia  "Tucuman" %}selected{% endifequal %} value="Tucuman">Tucuman
+                    <option {% ifequal posts.provincia  "Exterior" %}selected{% endifequal %} value="Exterior">Exterior
+                </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Lugar de la denuncia</label>
+                <div class="span7">
+                    <input type="text" name="lugarDenuncia"
+                        value="{{ posts.lugarDenuncia }}"
+                        placeholder="Comisaria o destacamento"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <label class="span2">Telefono de contacto</label>
+                <div class="span7">
+                    <input type="text" name="telefonoContacto"
+                        value="{{ posts.telefonoContacto }}"
+                        placeholder="Celular o fijo"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Accesorios</label>
+                <div class="span7">
+                    <input type="text" name="accesorios"
+                        value="{{ posts.accesorios }}"
+                        placeholder="Luces u otros..."
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <label class="span2">Detalles</label>
+                <div class="span7">
+                    <input type="text" name="detalle"
+                        value="{{ posts.detalle }}"
+                        placeholder="Detalles especiales o modificaciones"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Recompensa</label>
+                <div class="span7">
+                    <input type="text" name="recompensa"
+                        value="{{ posts.recompensa }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Recompensa</label>
+                <div class="span7">
+                    <input type="text" name="recompensa"
+                        value="{{ posts.recompensa }}"
+                        class="form-control" {% if lectura == "true" %}
+                        readonly {% endif %}>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Imagen</label>
+                <div class="span7">
+                    <input type="file" name="foto" class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="span2">Forma del robo</label>
+                <div class="span4">
+                <select name=condicion class="form-control">
+                    <option value="atada">Atada
+                    <option value="manoarmada">Mano armada
+                    <option value="nose">No se especificar
+                </select>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="span10" style="text-align:center">
+                    <button type="submit" name="submit"
+                        class="btn btn-sm btn-success btn-custom"
+                        style="margin:10px;"
+                        id="enviadatos">
+                        <span class="glyphicon glyphicon-ok"></span>Grabar</button>
+
+
+                    <button type="reset" name="reset"
+                        class="btn btn-sm btn-danger btn-custom"
+                        style="margin:10px;">
+                        <span class="glyphicon glyphicon-remove"></span>Cancelar</button>
+
+                </div>
+            </div>
+        </form>
+        <br><br>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

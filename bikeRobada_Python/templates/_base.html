@@ -1,0 +1,28 @@
+{% load url from future %}
+{% load staticfiles %}
+{% spaceless %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/><title>Django Contactos</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel=stylesheet href="{% static 'bootstrap311/css/bootstrap.min.css' %}">
+        <link rel=stylesheet href="{% static 'css/base.css' %}" media=screen>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <style>
+            .btn-custom {
+                width: 160px !important;
+                }
+        </style>
+    </head>
+    <body>
+        <div class="container" id="contenido">
+
+        {% block datos %}{% endblock %}
+        </div>
+        <script src="{% static 'bootstrap311/js/bootstrap.min.js' %}"></script>
+    </body>
+</html>
+{% endspaceless %}

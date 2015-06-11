@@ -1,0 +1,22 @@
+{% extends "baseIndex.html" %}
+{% load url from future %}
+{% load staticfiles %}
+
+{% block datos %}
+<div class="jumbotron" 
+    style="margin-top:100px; margin-bottom:240px;">
+    <h1>Aviso !!!</h1>
+    <p>{{ message }}</p>
+    {% if boton_regreso %}
+    <div class="row">
+        <div class="span2">
+        <a href="/denuncias/append_denuncias/">
+            <button type="submit"
+                class="btn btn-primary btn-lg btn-block"/>Regresar
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            </button></a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

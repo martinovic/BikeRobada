@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dotworld.bikerobada2"
+    android:versionCode="1"
+    android:versionName="2.0" >
+
+    <uses-sdk android:maxSdkVersion="19"
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    
+	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/bikeicon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.dotworld.bikerobada.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="com.dotworld.bikerobada.ShowResult"
+            android:label="@string/title_act_resultado"/>
+
+        <activity android:name="com.dotworld.bikerobada.SettingsActivity"
+            android:label="@string/title_activity_settings"/>
+
+        <activity android:name="com.dotworld.bikerobada.Legales"/>
+
+        <activity android:name="com.dotworld.bikerobada.Settings"
+            android:label="@string/title_act_settings"/>
+
+        <activity android:name="com.dotworld.bikerobada.Informacion"
+            android:label="@string/title_activity_informacion"/>
+
+        <activity android:name="com.dotworld.bikerobada.ManualUso"
+            android:label="@string/title_activity_manual_uso"/>
+    </application>
+
+</manifest>

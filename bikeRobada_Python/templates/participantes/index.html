@@ -1,0 +1,48 @@
+{% extends "baseIndex.html" %}
+{% load url from future %}
+{% load staticfiles %}
+
+{% block titulo%}
+        <h2>{{ titulo }}</h2>
+{% endblock %}
+
+{% block datos %}
+
+        <div class="row">
+            <div class="span11" style="overflow-y: scroll; height:450px;">
+                <p>Participan del proyecto las siguientes empresas,
+                porque ellos tambien creen que el robo de una bicicleta es
+                un delito.</p>
+                <p>
+                    <img alt="Android app on Google Play"
+                           src="{{ STATIC_URL }}imgs/empresas/banner-11-a-Fondo.jpg" 
+                           height='100px'
+                           align="abs-middle"/>
+                <!-- </p>
+                <p> -->
+                    <img alt="Android app on Google Play"
+                           src="{{ STATIC_URL }}imgs/empresas/canaglia.gif" 
+                           height='100px'
+                           align="abs-middle"/>
+                <!-- </p>
+                <p> -->
+                    <img alt="Android app on Google Play"
+                           src="{{ STATIC_URL }}imgs/empresas/sinlimite.jpg" 
+                           height='100px'
+                           align="abs-middle"/>
+                <!-- </p>
+                <p> -->
+                    <img alt="Android app on Google Play"
+                           src="{{ STATIC_URL }}imgs/empresas/denicio-360x100.gif" 
+                           height='100px'
+                           align="abs-middle"/>
+                <!-- </p>
+                <p> -->
+                    <img alt="Android app on Google Play"
+                           src="{{ STATIC_URL }}imgs/empresas/zonabikerio-360x100-sep10.gif" 
+                           height='100px'
+                           align="abs-middle"/>
+                </p>
+            </div>
+        </div>
+{% endblock %}

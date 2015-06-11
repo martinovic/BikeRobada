@@ -1,0 +1,4 @@
+<a href="https://play.google.com/store/apps/details?id=com.dotworld.bikerobada.app"><img alt="Android app on Google Play"
+                           src="/static/imgs/es-419_app_rgb_wo_60.png"
+                           height='35px'
+                           align="abs-middle"/>

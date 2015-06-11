@@ -1,0 +1,42 @@
+{% extends "baseIndex.html" %}
+{% load url from future %}
+{% load staticfiles %}
+
+{% block titulo%}
+        <h2>Consejos para no ser victima</h2>
+{% endblock %}
+
+{% block datos %}
+
+        <div class="row">
+            <div class="span11" style="overflow-y: scroll; height:450px;">
+                <p>Como atar y asegurar la bicicleta</p>
+                <p>
+                <iframe width="420" height="315" 
+                    src="//www.youtube.com/embed/aTA3JsZWiec" 
+                    frameborder="0" allowfullscreen></iframe>
+                </p>
+                <p>
+                <iframe width="420" height="315" 
+                    src="//www.youtube.com/embed/_8UpUj_8tWI" 
+                    frameborder="0" allowfullscreen></iframe></p>
+                <p>
+                <iframe width="420" height="315" 
+                    src="//www.youtube.com/embed/FCbU83_G6nA" 
+                    frameborder="0" allowfullscreen></iframe>
+                </p>
+                <p><iframe width="420" height="315" 
+                    src="//www.youtube.com/embed/0pFDjWe-8FI" 
+                    frameborder="0" allowfullscreen></iframe>
+                </p>
+                <p><iframe width="420" height="315" 
+                    src="//www.youtube.com/embed/3OF64hKs6mU" 
+                    frameborder="0" allowfullscreen></iframe>
+                </p>
+                
+            </div>
+        </div>
+{% endblock %}
+{% block estadistica %}
+    {% include "estadistica.html" %}
+{% endblock %}

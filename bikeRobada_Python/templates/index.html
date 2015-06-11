@@ -1,0 +1,229 @@
+{% load url from future %}
+{% load staticfiles %}
+{% spaceless %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/><title>Bike Robada</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel=stylesheet href="{% static 'bootstrap311/css/bootstrap.css' %}">
+        <link rel=stylesheet href="{% static 'bootstrap311/css/bootstrap-responsive.min.css' %}">
+        <link rel=stylesheet href="{% static 'css/base.css' %}" media=screen>
+        
+        <link type='text/css' href="{% static 'css/demo.css' %}" rel='stylesheet' media='screen' />
+        <link type='text/css' href="{% static 'css/basic.css' %}" rel='stylesheet' media='screen' />
+        <!--[if lt IE 7]>
+        <link type='text/css' href='css/basic_ie.css' rel='stylesheet' media='screen' />
+        <![endif]-->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <style>
+            .btn-custom {
+                width: 160px !important;
+                }
+        </style>
+    </head>
+    <body>
+        <header class="fondo1">
+            {% include "menu.html" %}
+
+            <div class="container" role="main">
+			    <div class="row">
+			        <div class="span10">
+			            <div class="span4">
+				            <h3 class="text-white">El robo de una bicicleta tambien es un delito !!!</h3>
+				            <br>
+				            <p class="text-white">El ser participe de una compra de material robado 
+				            nos hace complices, nos hace fomentar mas robos, 
+				            que mas usuarios de un medio sustentable pierdan 
+				            su posibilidad de desplazarse por trabajo, 
+				            diversion o beneficio de salud.<br>
+				            Haz la denuncia, permite que 
+				            otros usuarios sepan 
+				            que esa bicicleta tenia un due&ntilde;o.<br>
+				            Permite que un comprador te avise 
+				            para que puedas recuperar 
+				            tu bike<br> 
+				            <br>
+				            <form action="/denuncias/append_denuncias/"
+				                method="post" class="form-horizontal"
+				                role="form"
+				                style="display: inline; ">{% csrf_token %}
+					            <input type=hidden name=id value=none>
+					            <button type="submit"
+					                class="btn btn-primary btn-lg btn-block"/>
+					                HACER DENUNCIA
+					                <span class="glyphicon glyphicon-chevron-right"></span>
+					                 
+					            </button>
+				            </form>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+	    </header>
+			    
+        <div class="container" role="main">
+            <div class="row">
+            <div class="span12">
+                <div class="span5 text-center"
+                    style=" margin-top:30px;">
+                    <img src="{{ STATIC_URL }}imgs/qr_img.png">
+                    <p>Codigo QR</p>
+                    
+                </div>
+                <div class="span5 text-center"
+                    style="height:150px; margin-top:30px;">
+                    <img src="{{ STATIC_URL }}imgs/bikeicon.png"><br>
+                    <p>Puedes descargar el complemento de 
+                    verificacion para ANDROID escaneando el codigo QR o 
+                    pulsando el boton de Google Play Store</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.dotworld.bikerobada.app">
+					  <img alt="Android app on Google Play"
+					       src="{{ STATIC_URL }}imgs/es-419_app_rgb_wo_60.png" 
+					       align="abs-middle"/>
+					</a>
+                    <!-- <img alt="Android app on Google Play"
+                           src="/static/imgs/es-419_app_rgb_wo_60.png"
+                           height='35px'
+                           align="abs-middle"/> -->
+                </div>
+            </div>
+            </div>
+        </div>
+		<div class="container" role="main">
+		    <div class="row" style="margin-top:110px;">
+		    <div class="span12">
+		        <div class="span4">
+		            <h3>Denuncia</h3>
+		            <p>En esta seccion se puede hacer la denuncia de la bicicleta que
+		            te han robado.</p>
+		            <p>Te pedimos poner la mayor cantidad de datos posibles para ayudar
+		            a que otro usuario pueda tener la posiblidad de individualizar mas 
+		            facilmente tu bicileta.</p>
+		            <p>Carga datos verdaderos, el robo de un bicilceta no es 
+		            un juego... <strong>es un delito</strong>.</p>
+		            <form action="/denuncias/append_denuncias/"
+		                method="post" class="form-horizontal"
+		                role="form"
+		                style="display: inline;">{% csrf_token %}
+		            <input type=hidden name=id value=none>
+		            <button type="submit"
+		                class="btn btn-primary"/>
+		                Ir...
+		            </button>
+		            </form>
+		        </div>
+		        <div class="span4">
+		            <h3>Busqueda</h3>
+		            <p>Desde aqui podras hacer la busqueda de la bicicleta robada, 
+		            pudiendo ver toda la informacion denunciada por su dueño asi como
+		            ver una imagen de la misma si esta disponible.</p>
+		            <a href="/denuncias/busquedas_index">
+		            <button type="submit"
+		                class="btn btn-primary"/>
+		                Ir...
+		            </button>
+		            </a>
+		        </div>
+		        <div class="span3">
+		            <h3>Recuperada</h3>
+		            <p>Si ya pudiste encontrar tu bicicleta desde esta opcion
+		            podras quitarla de la lista de buscadas.</p>
+		            <p>Ingresando la direccion de email con la que registraste 
+		            tu denuncia podras iniciar el proceso.</p>
+		            <a href="/recuperada/index">
+		            <button type="submit" class="btn btn-primary" />
+		                Ir...
+		            </button></a>
+		            <!-- onclick="javascript:callModalRecuperada();" -->
+		        </div>
+		    </div>
+            </div>
+        </div>
+        
+        <div class="container">
+		    <div class="span10 text-center">
+		    <br><br>
+		    </div>
+		</div>
+		<!-- CONSEJOS -->
+        <div class="container" role="main">
+            <div class="row" style="margin-top:30px;">
+	            <div class="span12">
+	                <div class="span5">
+				       <h3>Consejo 1</h3>
+				       <p>Como atar de forma mas segura tu bicicleta.</p>
+				    
+				    </div>
+	
+		            <div class="span5">
+			          <img src="{{ STATIC_URL }}imgs/aparcamiento-correcto.jpg"
+			               width="400px">
+			        </div>
+			     </div>
+	        </div>
+        </div>
+        
+        <div class="container" role="main">
+            <div class="row" style="margin-top:30px;">
+	            <div class="span12">
+	                <div class="span5">
+	                    <img src="{{ STATIC_URL }}imgs/robos0.jpg" 
+	                       width="400px">
+	                </div>
+	                <div class="span5">
+	                    <h3>Consejo 2</h3>
+	                    <p>Una buena eleccion de tu sistema de seguro reduce
+	                    las posibilidades de un robo.</p>
+	                    <p>No existe un metodo 100% seguro, pero si mejoras esto
+	                    el ladron buscara otra que le de menos problemas y sea mas
+	                    rapido el tramite de cometer el delito.</p>
+	                </div>
+	            </div>
+            </div>
+	    </div>
+        
+        <!-- Videos -->
+        <div class="container" role="main">
+            <div class="row" style="padding-bottom:10px;">
+                <div class="span12">
+                    <div class="span5">
+                        <h3>Mira como...</h3>
+                        <p>Un mal que afecta en todos los paises. 
+                        En este caso una trampa para ver como roban.</p>
+                        <p>Funte: Canal 13, Chile.</p>
+                    </div>
+                    <div class="span5">
+                        <p><iframe width="480" 
+                            height="360" 
+                            src="//www.youtube.com/embed/yp4uPayCXWY" 
+                            frameborder="0" allowfullscreen></iframe>
+		                </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="basic-modal-recuperada">
+            {% include "modales/modal_recuperada.html" %}
+        </div>
+        <div id="basic-modal-emitido">
+            {% include "modales/modal_avisoEmitido.html" %}
+        </div>
+        <div class="container">
+            <div class="span10 text-center">
+            <br><br>
+            </div>
+        </div>
+        {% include "pie.html" %}
+        <script src="{% static 'bootstrap311/js/bootstrap.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/jquery.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/jquery.simplemodal.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/basic.js' %}"></script>
+        {% if avisoEmitido %}
+            <script type="text/javascript"> callModalAvisoEmitido();</script>
+        {% endif %}
+    </body>
+</html>
+{% endspaceless %}

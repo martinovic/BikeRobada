@@ -1,0 +1,247 @@
+/* CSS  base.html */
+
+/* Código inicial en base.html */
+
+@charset "utf-8";
+@import url(//fonts.googleapis.com/css?family="Ubuntu"); *{font-family:"Ubuntu"}
+
+
+
+.fondo2 { 
+	background: url(../imgs/fondo1.JPG) no-repeat scroll 0% 0% transparent;
+    background-size: cover;
+	height: 100px !important;
+	cover transparent;
+	/* -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover; */
+}
+
+.containerColor1{
+    background-color: #dbdbdb;
+    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    }
+
+.containerColor2{
+    background-color: #fff;
+    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    }
+
+label{ font-size: 12px }
+
+input{
+    border: 1px solid #B6ACAC;
+    box-sizing: border-box;
+    padding: 3px;
+    border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.input-large{
+    height: 44px !important;
+    font-size: 12px !important
+}
+
+.footer{
+    position: absolute;
+    width: 100%;
+    min-height: 75px;
+    bottom: 0;
+    border-top: 2px dotted gray;
+    background-color:#282828;
+}
+
+/* Código inline encontrado en base.html */
+.djcontent{ padding-top:75px }
+
+.form-vertical{
+    /* Old code comented */
+    /*max-width:75%;margin-left:20px*/
+}
+
+.rounded{
+    border: 2px solid gray;
+    border-radius:25px;
+    padding:25px;
+}
+
+.divRedondeado{
+    border-radius: 4px;
+    background-color:#000;
+    color: #fff;
+    padding:5px 10px;
+    margin-bottom:20px;
+
+}
+
+.text-white{
+    color: #fff;
+    padding:5px 10px;
+    margin-bottom:20px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.navbarColor{
+    /* background-color: #ff8000; */
+    background-color: transparent;
+    color: white;
+}
+
+.underline{
+    border-bottom:1px solid #aaa;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    min-height: 50px;
+    bottom: 0;
+    border-top: 2px solid gray;
+    background-color: #282828;
+    vertical-align:middle;
+    margin:0px !important;
+}
+
+.estadisticas{
+	width:100%;
+	margin-top:20px;
+    background-color:#929292;
+}
+
+.pie{
+    /* position: absolute; 
+    bottom:50px; */
+    margin-top:80px;
+    padding-top:30px;
+    width:100%;
+    height:200px;
+    background-color:#333333;
+    color:#DBDBDB;
+}
+
+.pie2{
+    padding-top:30px;
+    width:100%;
+    height:200px;
+    background-color:#333333;
+    color:#DBDBDB;
+}
+
+.spanEstadistica {
+	margin-top:15px;
+}
+
+.navbar-nav li a {
+ line-height: 50px;
+}
+
+.vcenter {
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .fondo1 { 
+        background: url(../imgs/fondo1366.JPG) no-repeat scroll 0% 0% transparent;
+        background-size: cover;
+        height: 544px !important;
+        cover transparent;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    .fondo1 { 
+        background: url(../imgs/fondo768.JPG) no-repeat scroll 0% 0% transparent;
+        background-size: cover;
+        height: 580px !important;
+        cover transparent;
+    }
+    
+    img {
+        max-width: 300px;
+    }
+    
+    .pie2{
+        padding-top:30px;
+        width:100%;
+        height:500px;
+        background-color:#333333;
+        color:#DBDBDB;
+    }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    .fondo1 { 
+        background: url(../imgs/fondo767_2.JPG) no-repeat scroll 0% 0% transparent;
+        background-size: cover;
+        height: 470px !important;
+        cover transparent;
+        padding-right:5%;
+    }
+    
+    img {
+        max-width: 380px;
+    }
+    
+    .pie2{
+        padding-top:30px;
+        width:100%;
+        height:500px;
+        background-color:#333333;
+        color:#DBDBDB;
+    }
+}
+
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    html {
+        -webkit-text-size-adjust: none;
+    }
+
+    body{margin:0;}
+
+    .fondo1 { 
+        background: url(../imgs/320x480.JPG) no-repeat scroll 0% 0% transparent;
+        background-size: cover;
+        height: 580px !important;
+        cover transparent;
+        padding-right:5%;
+        padding-top:10px;
+    }
+    
+    iframe {
+        max-width: 230px;
+    }
+    
+    img {
+        max-width: 220px;
+    }
+    
+
+	.pie2{
+	    padding-top:30px;
+	    width:100%;
+	    height:500px;
+	    background-color:#333333;
+	    color:#DBDBDB;
+	}
+	
+	.liGris{
+	   color:red;
+	}
+}

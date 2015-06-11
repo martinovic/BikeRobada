@@ -1,0 +1,90 @@
+{% extends "baseIndex.html" %}
+{% load url from future %}
+{% load staticfiles %}
+{% block search %}
+
+{% endblock %}
+{% block titulo%}
+        <h2>{{ titulo }}</h2>
+{% endblock %}
+{% block datos %}
+    
+    <div class="row">
+        <div class="span5"
+            style=" vertical-align: middle; ">
+            <form action="/denuncias/append_denuncias/"
+                method="post" class="form-horizontal"
+                role="form"
+                style="display: inline;">{% csrf_token %}
+            <input type=hidden name=id value=none>
+            <button type="submit"
+                class="btn btn-sm btn-success btn-custom"
+                style="margin:10px;"/>
+                HACER DENUNCIA
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+            </form>
+        </div>
+        <div class="span6" align="right">
+            <div class="input-group span2" style="margin-top:10px;">
+		        <form action="/denuncias/viewEvent/" method="post"
+		            class="form-horizontal" role="form"
+		            style="display: inline;">{% csrf_token %}
+		            <span class="input-group-btn">
+		                <input type="text" class="form-control" name="q">
+		                <button class="btn btn-default btn-custom"
+		                    type="submit">
+		                    <i class="glyphicon glyphicon-search"></i> Buscar</button>
+		            </span>
+		        </form>
+		    </div>
+        </div>
+    </div>
+    <div class="span10"  style="overflow-y: scroll; overflow-x: hidden;height:450px;">
+    {% if lista %}
+        <div class="row">
+            <div class="span9">
+            <table class="table table-hover">
+            <tr>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Colores</th>
+                <th>A&ntilde;o</th>
+                <th>Fecha robo</th>
+                <th>&nbsp;</th>
+            </tr>
+            {% for post in lista %}
+                <tr>
+                    <td>{{ post.tipo }}</td>
+                    <td>{{ post.marca }}</td>
+                    <td>{{ post.modelo }}</td>
+                    <td>{{ post.colores }}</td>
+                    <td>{{ post.aniomodelo }}</td>
+                    <td>{{ post.fecharobo }}</td>
+                    <td>
+                    <form action="/denuncias/view_denuncia/"
+                                method="post" class="form-horizontal"
+                                role="form"
+                                style="display: inline;">{% csrf_token %}
+                                <input type=hidden name=q value="{{ post.id }}">
+                                <input type=hidden name=lectura value="0">
+                        <button type="submit"
+                            class="btn btn-sm "/>
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            Ver
+                        </button>
+                    </form>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+            </div>
+        </div>
+    {% endif %}
+    </div>
+{% endblock %}
+{% block estadistica %}
+    {% include "estadistica.html" %}
+{% endblock %}
