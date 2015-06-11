@@ -1,0 +1,4 @@
+# BikeRobada
+
+05-06-2015 se comenta la posibilidad de subir imagenes en /bikeRobada/bikeRobada_Python/bicicletas/view.py
+	   linea 233 en adelante.

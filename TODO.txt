@@ -1,0 +1,8 @@
+# BikeRobada
+########################################
+# Cosas para terminar de hacer         #
+########################################
+
+- Ver el por que no carga las imagenes y da error en Django.
+- Ver poder enviar la referencia de imahen por el REST a android en la respuesta a la consulta
+
