@@ -1,4 +1,13 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+__prj__ = 'BikeRobada'
+__version__ = '1.0'
+__license__ = ''
+__author__ = 'marcelo martinovic'
+__email__ = 'marcelo.martinovic@gmail.com'
+__url__ = ''
+__date__ = '2014/06/11'
+
 import web
 import json
 import datetime
